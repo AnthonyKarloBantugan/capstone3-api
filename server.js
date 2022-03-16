@@ -2,6 +2,8 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+dotenv.config();
 
 // [Modules]
 const loginRoutes = require("./routes/loginRoutes");
@@ -12,8 +14,6 @@ const stripeRoutes = require("./routes/stripeRoutes");
 const orderRoutes = require("./routes/orderRoutes");
 
 // [Evironment Variables Setup]
-const dotenv = require("dotenv");
-dotenv.config();
 
 // [Server Setup]
 const app = express();
@@ -42,4 +42,4 @@ app.use("/checkout", stripeRoutes);
 app.use("/orders", orderRoutes);
 
 // [Server Response]
-app.listen(5000, () => console.log(`Server running on port ${port}`));
+app.listen(port, () => console.log(`Server running on port ${port}`));
