@@ -8,8 +8,8 @@ const createOrder = async (data) => {
 	const newOrder = new Order(data.reqBody);
 
 	return newOrder.save().then((order, err) => {
-		if (err) return err;
-		return order;
+		if (err) return false;
+		return newOrder;
 	});
 };
 

@@ -6,7 +6,7 @@ const token = require("../token");
 // [Access]     User
 router.post("/", token.verify, (req, res) => {
 	const data = {
-		token: req.headers.authorization,
+		payload: token.decode(req.headers.authorization),
 		reqBody: req.body,
 	};
 	orderController
